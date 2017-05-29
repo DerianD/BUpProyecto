@@ -11,27 +11,26 @@ from django.utils.text import slugify
 class usuario(models.Model):
     nombre = models.CharField(max_length = 100)
     progreso = models.CharField(max_length = 100)
-    edad = models.DecimalField(max_digits=150, decimal_places=20)
+    edad = models.CharField(max_length = 100)
     slug = models.SlugField(blank=True, unique=True)
     pcUser = models.SlugField(blank=True, unique=True)
     def __unicode__(self):
         return self.nombre
 
-class tiempo(models.Model):
-    iduser = models.IntegerField()
-    conexion = models.CharField(max_length = 100)
-    ultimaconexion = models.CharField(max_length = 100)
-    
-    def __unicode__(self):
-        return self.iduser
-
 class apps(models.Model):
-    iduser = models.IntegerField()
+    iduser = models.CharField(max_length = 100)
     nombre = models.CharField(max_length = 100)
     ruta = models.CharField(max_length = 100)
     
     def __unicode__(self):
         return self.iduser
+
+class Membership(models.Model):
+    usuario = models.ForeignKey(usuario, on_delete=models.CASCADE)
+    apps = models.ForeignKey(apps, on_delete=models.CASCADE)
+    conexion = models.CharField(max_length = 100)
+    ultimaconexion = models.CharField(max_length = 100)
+    
 
 #########################
 # Funciones - metodos

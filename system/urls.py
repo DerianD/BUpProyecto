@@ -18,12 +18,17 @@ from django.contrib import admin
 
 from accounts.views import UserRegisterView
 from app import views
+from app.views import usuarioDetailView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^nosotros/', views.info, name='nosotros'),
     url(r'^app/', views.appinfo, name='appinfo'),
+    url(r'^perfil/', views.userpag, name='perfil'),
+    url(r'^usuario/(?P<pk>\d+)/$', usuarioDetailView.as_view(), name='usuario'),
+    url(r'^usuario/(?P<slug>[\w-]+)/$', usuarioDetailView.as_view(), name='usuario_slug'),
     url(r'^registrar/$', UserRegisterView.as_view(), name='Registro'),
     url('^', include('django.contrib.auth.urls')),
+    url(r'^detalle/(?P<object_id>\d+)/$', views.detalle, name='detalle'),
 ]

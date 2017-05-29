@@ -15,21 +15,33 @@
       <header class="nav">
         <div class="container">
           <div class="nav-left">
-            <a class="nav-item" href="../">
+            <a class="nav-item" href="{% url 'home' %}">
               <h1 class="title is-3">
-                IPH
+                SmarLock
               </h1>
             </a>
           </div>
           {% include "menu.html" %}
-            <span class="nav-item">
-              <a class="button is-info is-inverted" href="/../admin/">
+             {% if user.is_authenticated %}
+                        <span class="nav-item">
+              <a class="button is-info is-inverted" href="{% url 'logout' %}">
+                <span class="icon">
+                  <i class="icon-user"></i>
+                </span>
+                <span>Salir</span>
+              </a>
+            </span>
+                        {% else %}
+                          
+                        <span class="nav-item">
+              <a class="button is-info is-inverted" href="{% url 'login' %}">
                 <span class="icon">
                   <i class="icon-user"></i>
                 </span>
                 <span>Login</span>
               </a>
             </span>
+                        {% endif %}
           </div>
         </div>
       </header>

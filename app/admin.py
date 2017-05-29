@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from app.models import usuario
+from app.models import usuario,apps,Membership
 
 class AdminPag(admin.ModelAdmin):
     list_display = ["__unicode__", "nombre", "progreso", "pcUser","slug"]
@@ -13,3 +13,19 @@ class AdminPag(admin.ModelAdmin):
         model = usuario
 
 admin.site.register(usuario, AdminPag)
+
+class AdminPag(admin.ModelAdmin):
+    list_display = ["iduser", "nombre", "ruta"]
+
+    class Meta:
+        model = apps
+
+admin.site.register(apps, AdminPag)
+
+class AdminPag(admin.ModelAdmin):
+    list_display = ["usuario", "apps", "conexion"]
+
+    class Meta:
+        model = Membership
+
+admin.site.register(Membership, AdminPag)

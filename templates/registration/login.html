@@ -2,7 +2,7 @@
 
  {% block info %}
                       {% if user.is_authenticated %}
-                        <p class="title is-3">Yu ya estas logueado, puedes iniciar con otra cuenta.</p>
+                        <p class="title is-3">Yu ya estas logueado como {{user.username}}, puedes iniciar con otra cuenta.</p>
                         {% else %}
                           <p class="title is-3">Iniciar Sesion</p>
                         {% endif %} 
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-    <input type="hidden" name="next" value="{% url 'home' %}" />
+    <input type="hidden" name="next" value="{% url 'perfil' %}" />
 </form>
 {% endblock %}
 
