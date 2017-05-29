@@ -20,13 +20,9 @@
           <div class="container section">
             <div class="has-text-right">
               <h1 class="title is-1">Login</h1> <br>
-                  {% if next %}
-                      {% if user.is_authenticated %}
-                        <p class="title is-3">Yu ya estas logueado, puedes iniciar con otra cuenta.</p>
-                        {% else %}
-                          <p class="title is-3">Iniciar Sesion</p>
-                        {% endif %}
-                    {% endif %}
+              {% block info %}
+                
+              {% endblock info %}
               
             </div>
           </div>
