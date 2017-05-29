@@ -3,7 +3,7 @@
 {%block register%}
 
 <div class="box">
-    <form class="" action="" method="POST"><input type="hidden" name="csrfmiddlewaretoken" value="CImfOyXImvYyfRCkAS2klNx4aqVOIrxIlDkOayqq3fnku3TuOJ812aBjQWNMJEgM">
+    <form class="" action="" method="POST">{% csrf_token %}
      
               <label class="label">Username</label>
               <p class="control">
