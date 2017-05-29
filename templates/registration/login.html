@@ -15,14 +15,6 @@
                 <h1 class="avatar has-text-centered section">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png">
                 </h1>
-                 {% if next %}
-                      {% if user.is_authenticated %}
-                        <a>Your account doesn't have access to this page. To proceed,
-                        please login with an account that has access.</a>
-                        {% else %}
-                          <a>Please login to see this page.</a>
-                        {% endif %}
-                      {% endif %}
                 <div class="login-form">
                   <p class="control has-icon has-icon-right">
                     <input class="input email-input" name="username" autofocus required id="id_username" type="text" placeholder="jsmith@example.org">
@@ -47,7 +39,7 @@
                   <p class="has-text-centered">
                     <a href="{% url 'password_reset' %}">No recuerda su contraseña</a>
                       {% if form.errors %}
-                        <a>Your username and password didn't match. Please try again.</a>
+                        <a>Tu usuario o contraseña deben coinsidir.</a>
                       {% endif %}
                      
                   </p>

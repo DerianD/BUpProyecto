@@ -1,8 +1,35 @@
-{% extends "base.html" %}
+{% extends "register.html" %}
 
-{%block content%}
-<h3>Registro de usuarios</h3>
+{%block register%}
 
-{%include "form.html" with form=form submit_btn="Register"%}
+<div class="box">
+    <form class="" action="" method="POST"><input type="hidden" name="csrfmiddlewaretoken" value="CImfOyXImvYyfRCkAS2klNx4aqVOIrxIlDkOayqq3fnku3TuOJ812aBjQWNMJEgM">
+     
+              <label class="label">Username</label>
+              <p class="control">
+                <input class="input" type="text" name="username" required="" id="id_username" placeholder="jsmith">
+                
+              </p>
+              <label class="label">Email</label>
+              <p class="control">
+                <input class="input" type="text" placeholder="jsmith@example.org" type="email" name="email" required="" id="id_email">
+              </p>
+              <hr>
+              <label class="label">Password</label>
+              <p class="control">
+                <input class="input" type="password" name="password" placeholder="●●●●●●●" required="" id="id_password">
+              </p>
+              <label class="label">Confirm Password</label>
+              <p class="control">
+                <input class="input" type="password" placeholder="●●●●●●●" name="password2" required="" id="id_password2">
+              </p>
+              <hr>
+              <p class="control">
+                <input class="button is-primary" type="submit" class="btn btn-primary " name="" value="Register">
+                <button class="button is-default"><a href="{% url 'home' %}">Cancel</a></button>
+              </p>
+        </form>
+            </div>
+        
 
 {%endblock%}

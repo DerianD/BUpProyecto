@@ -22,29 +22,32 @@
               </h1>
             </a>
           </div>
-          <span class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <div class="nav-right nav-menu">
-            <a class="nav-item is-active">
-              Inicio
-            </a>
-            <a class="nav-item">
-              Ejemplo
-            </a>
-            <a class="nav-item">
-              Documentacion
-            </a>
-            <span class="nav-item">
-              <a class="button is-info is-outlined is-inverted">
-                <span class="icon">
-                  <i class="icon-user"></i>
-                </span>
-                <span>Login</span>
-              </a>
-            </span>
+          {% include "menu.html" %}
+            
+                      {% if user.is_authenticated %}
+                        <span class="nav-item">
+                          <a class="button is-info is-outlined is-inverted" href="{% url 'logout' %}">
+                            <span class="icon">
+                              <i class="icon-user"></i>
+                            </span>
+                              <span>
+                              Salir
+                              </span>
+                          </a>
+                        </span>
+                        {% else %}
+                          <span class="nav-item">
+                          <a class="button is-info is-outlined is-inverted" href="{% url 'login' %}">
+                            <span class="icon">
+                              <i class="icon-user"></i>
+                            </span>
+                              <span>
+                              Login
+                              </span>
+                          </a>
+                        </span>
+                        {% endif %}
+
           </div>
         </div>
       </header>
@@ -83,22 +86,22 @@
         <div class="column is-4">
           <div class="panel">
             <div class="panel-block section">
-              <p class="has-text-centered"><i class="icon-camera icon-block"></i></p>
+              <p class="has-text-centered"><i class="icon-info icon-block"></i></p>
               <br>
-              <p>Lorem ipsu m dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+              <p>Ve nuestra informacion, quienes somos , vision, mision y objetivos</p>
               <br>
-              <p class="has-text-centered"><a class="button is-info is-outlined">Action</a></p>
+              <p class="has-text-centered"><a class="button is-info is-outlined" href="{% url 'nosotros'%}">Nosotros</a></p>
             </div>
           </div>
         </div>
         <div class="column is-4">
           <div class="panel">
             <div class="panel-block section">
-              <p class="has-text-centered"><i class="fa icon-folder-open icon-block"></i></p>
+              <p class="has-text-centered"><i class="fa icon-download icon-block"></i></p>
               <br>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+              <p>Descarga nuestra aplicacion para pc y ve sus caracteristicas</p>
               <br>
-              <p class="has-text-centered"><a class="button is-info is-outlined">Action</a></p>
+              <p class="has-text-centered"><a class="button is-info is-outlined" href="{% url 'appinfo' %}">Informacion</a></p>
             </div>
           </div>
 
@@ -108,9 +111,9 @@
             <div class="panel-block section">
               <p class="has-text-centered"><i class="fa icon-facebook icon-block"></i></p>
               <br>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+              <p>Ve nuestro sitio de facebook para que puedas ablar con nosotros (Temporalmente Offline)</p>
               <br>
-              <p class="has-text-centered"><a class="button is-info is-outlined">Action</a></p>
+              <p class="has-text-centered"><a class="button is-info is-outlined" disabled>Facebook</a></p>
             </div>
           </div>
 

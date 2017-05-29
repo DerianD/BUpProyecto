@@ -22,6 +22,8 @@ from app import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'^nosotros/', views.info, name='nosotros'),
+    url(r'^app/', views.appinfo, name='appinfo'),
     url(r'^registrar/$', UserRegisterView.as_view(), name='Registro'),
     url('^', include('django.contrib.auth.urls')),
 ]
