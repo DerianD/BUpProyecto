@@ -1,10 +1,19 @@
 {% extends "login-b.html" %}
 
+ {% block info %}
+ {% csrf_token %}
+              {% if next %}
+                      {% if user.is_authenticated %}
+                        <p class="title is-3">Yu ya estas logueado, puedes iniciar con otra cuenta.</p>
+                        {% else %}
+                          <p class="title is-3">Iniciar Sesion</p>
+                        {% endif %}
+                    {% endif %}  
+  {% endblock info %}
+                  
+
+
 {% block content %}
-
-
-
-
 
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
