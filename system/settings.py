@@ -31,7 +31,7 @@ DEBUG = True
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-
+LOGOUT_REDIRECT_URL ='/login/'
 # Application definition
 
 INSTALLED_APPS = [
