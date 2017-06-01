@@ -1,0 +1,13 @@
+
+<div class="box">
+    <form class="" action="" method="POST">{% csrf_token %}
+     
+      {{form.as_p}}
+      
+              <hr>
+              <p class="control">
+                <input class="button is-primary" type="submit" class="btn btn-primary " name="" value="{{submit_btn}}">
+                <button class="button is-default"><a href="{% url 'home' %}">Cancel</a></button>
+              </p>
+        </form>
+            </div>

@@ -1,0 +1,17 @@
+{% extends "datauser.html" %}
+
+{% block title %}
+   {{ titulo }}             
+{% endblock title %}
+{%block data%}
+    {% if user.is_authenticated %}
+                
+
+                {%include "form2.html" with form=form submit_btn=submit_btn%}   
+         
+                        {% else %}
+                                 
+    {%include "form.html" with form=form submit_btn=submit_btn%}  
+    {% endif %}
+ 
+{%endblock%}

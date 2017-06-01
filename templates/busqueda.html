@@ -1,0 +1,51 @@
+
+          <form class="navbar-form navbar-right" action="." method="GET">
+            <input type="text" class="form-control" placeholder="Buscar..." name="q" value="{{ query|escape }}">
+          </form>
+
+
+
+  <h1>Busquedas</h1>
+
+  {% if query %}
+    <h2>Resultado para "{{ query|escape }}":</h2>
+ 
+    {% if results %}
+
+<div class="table-responsive">
+            <table class="table table-striped">
+<thead></thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Autor</th>
+                  <th>Editorial</th>
+                </tr>
+              </thead>
+              <tbody>
+
+    <ul> 
+
+     {% for apps in results %}
+
+    <tr></tr>
+      <th><a href="/libros/{{libromodelo.id}}">{{libromodelo.nombre}}</a></th>
+      <th>{{libromodelo.autor}}</th>
+      <th>{{libromodelo.editorial}}</th>
+    
+    </tr>
+
+     {%endfor%}
+      
+</ul>
+      </tbody>
+
+</table>
+</div>
+
+      
+    {% else %}
+      <p>No se encontraron libros</p>
+    {% endif %}
+  {% endif %}
+
+

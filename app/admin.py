@@ -15,7 +15,8 @@ class AdminPag(admin.ModelAdmin):
 admin.site.register(usuario, AdminPag)
 
 class AdminPag(admin.ModelAdmin):
-    list_display = ["iduser", "nombre", "ruta"]
+    list_display = ["__unicode__","iduser", "nombre", "ruta"]
+    list_editable = ["iduser"]
 
     class Meta:
         model = apps

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
+</head>
+<body>
+  <div class="hero-head">
+      <header class="nav">
+        <div class="container">
+          <div class="nav-left">
+            <a class="nav-item" href="{% url 'home' %}">
+              <h1 class="title is-3">
+                SmartLock
+              </h1>
+            </a>
+          </div>
+          {% include "menu.html" %}
+            
+                      {% if user.is_authenticated %}
+                        <span class="nav-item">
+              <a class="button is-info is-inverted" href="{% url 'logout' %}">
+                <span class="icon">
+                  <i class="icon-user"></i>
+                </span>
+                <span>Salir</span>
+              </a>
+            </span>
+                        {% else %}
+                          
+                       <span class="nav-item">
+              <a class="button is-info is-inverted" href="{% url 'login' %}">
+                <span class="icon">
+                  <i class="icon-user"></i>
+                </span>
+                <span>Login</span>
+              </a>
+            </span>
+                        {% endif %}
+        </div>
+      </header>
+    </div>
+  
+ <div class="box">
+      <!-- Main container -->
+      <nav class="level">
+        <!-- Left side -->
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle is-5">
+              
+                <strong>Usuarios:</strong>
+              
+            </p>
+          </div>
+          <form class="navbar-form navbar-right" action="." method="GET">
+          <div class="level-item">
+            <p class="control has-addons">
+              
+              <input class="input" type="text" name="q"  placeholder="Buscar Aplicacion" value="{{ bs|escape }}">
+              <button class="button">
+                Buscar
+              </button>
+
+
+            </p>
+          </div>
+          </form>
+        </div>
+
+        <!-- Right side -->
+        <div class="level-right">
+          <p class="level-item"><strong>
+           
+            </strong></p>
+        </div>
+      </nav>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="columns">
+     
+<table class="table">
+  <thead>
+    <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Progreso</th>
+    </tr>
+  </thead>
+  <tfoot>
+  </tfoot>
+  <tbody>
+    {%for bus in object_list%}
+
+    <tr>
+      <th>{{bus.id}}</th>
+      <th><a href="/usuario/{{bus.id}}/editar">{{bus.nombre}}</a></th>
+      <th>{{bus.edad}}</th>
+      <th>{{bus.progreso}}</th>
+    
+    </tr>
+  {%empty%}
+    <li>No hay libros en existencia!</li>
+  {%endfor%}
+  </tbody>
+</table>
+
+
+<h2 class="sub-header">Lista de Libros</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+<thead></thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Autor</th>
+                  <th>Editorial</th>
+                  <th>ISBN</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+
+    <ul> 
+  {%for libromodelo in object_list%}
+
+    <tr>
+      <th>{{libromodelo.id}}</th>
+      <th><a href="/libros/{{libromodelo.slug}}">{{libromodelo.nombre}}</a></th>
+      <th>{{libromodelo.autor}}</th>
+      <th>{{libromodelo.editorial}}</th>
+      <th>{{libromodelo.ISBN}}</th>
+      <th>{{libromodelo.precio}}</th>
+    
+    </tr>
+  {%empty%}
+    <li>No hay libros en existencia!</li>
+  {%endfor%}
+</ul>
+      </tbody>
+
+</table>
+</div>
+
+
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+

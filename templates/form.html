@@ -1,11 +1,13 @@
-<h1>{{titulo}}</h1>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <form class="" action="" method="POST" class=form-horizontal>{% csrf_token %}
-      <!-- <label for="">{{titulo}}</label> -->
-      {{form.as_p}}
-      <input type="submit" class ="btn btn-primary "name="" value="{{submit_btn}}">
 
-    </form>
-  </div>
-</div>
+<div class="box">
+    <form class="" action="" method="POST">{% csrf_token %}
+     
+      {{form.as_p}}
+      
+              <hr>
+              <p class="control">
+                <input class="button is-primary" type="submit" class="btn btn-primary " name="" value="{{submit_btn}}">
+                <button class="button is-default"><a href="{% url 'home' %}">Cancel</a></button>
+              </p>
+        </form>
+            </div>

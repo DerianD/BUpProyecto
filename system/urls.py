@@ -19,6 +19,7 @@ from django.contrib import admin
 from accounts.views import UserRegisterView
 from app import views
 from app.views import usuarioDetailView
+from app.views import actualizar,agregar_info,usuarioslista
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,4 +32,8 @@ urlpatterns = [
     url(r'^registrar/$', UserRegisterView.as_view(), name='Registro'),
     url('^', include('django.contrib.auth.urls')),
     url(r'^detalle/(?P<object_id>\d+)/$', views.detalle, name='detalle'),
+    ############
+    url(r'^usuario/(?P<pk>\d+)/editar/$', actualizar.as_view(), name='actualizar'),
+    url(r'^crear/$', agregar_info.as_view(), name='crearinfo'),
+    url(r'^usuarios/$', usuarioslista.as_view(), name='List_view'),
 ]

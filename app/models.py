@@ -13,12 +13,13 @@ class usuario(models.Model):
     progreso = models.CharField(max_length = 100)
     edad = models.CharField(max_length = 100)
     slug = models.SlugField(blank=True, unique=True)
-    pcUser = models.SlugField(blank=True, unique=True)
+    pcUser = models.CharField(max_length = 100)
     def __unicode__(self):
         return self.nombre
 
 class apps(models.Model):
     iduser = models.CharField(max_length = 100)
+    ident= models.DecimalField(max_digits=8, decimal_places=0, null=True, blank=True)
     nombre = models.CharField(max_length = 100)
     ruta = models.CharField(max_length = 100)
     
